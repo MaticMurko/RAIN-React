@@ -13,7 +13,6 @@ module.exports = {
     list: function (req, res) {
         PhotoModel.find()
         .populate('postedBy')
-        .sort({time:-1})
         .exec(function (err, photos) {
             if (err) {
                 return res.status(500).json({
