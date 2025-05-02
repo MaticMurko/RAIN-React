@@ -30,14 +30,42 @@ function Register() {
         }
     }
 
-    return(
-        <form onSubmit={Register}>
-            <input type="text" name="email" placeholder="Email" value={email} onChange={(e)=>(setEmail(e.target.value))} />
-            <input type="text" name="username" placeholder="Username" value={username} onChange={(e)=>(setUsername(e.target.value))}/>
-            <input type="password" name="password" placeholder="Password" value={password} onChange={(e)=>(setPassword(e.target.value))} />
-            <input type="submit" name="submit" value="Login" />
-            <label>{error}</label>
-        </form>
+    return (
+        <div className="container mt-5">
+            <form className="card shadow-sm p-4 mx-auto" style={{ maxWidth: "400px" }} onSubmit={Register}>
+                <h2 className="mb-4">Register</h2>
+                <input
+                    type="text"
+                    className="form-control mb-3"
+                    name="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+                <input
+                    type="text"
+                    className="form-control mb-3"
+                    name="username"
+                    placeholder="Username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                />
+                <input
+                    type="password"
+                    className="form-control mb-3"
+                    name="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+                <input
+                    type="submit"
+                    className="btn btn-success w-100"
+                    value="Register"
+                />
+                {error && <div className="text-danger mt-3">{error}</div>}
+            </form>
+        </div>
     );
 }
 
