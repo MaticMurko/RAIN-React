@@ -16,12 +16,13 @@ function Profile(){
     }, []);
 
     return (
-        <>
-            {!userContext.user ? <Navigate replace to="/login" /> : ""}
-            <h1>User profile</h1>
-            <p>Username: {profile.username}</p>
-            <p>Email: {profile.email}</p>
-        </>
+        <div className="container mt-5">
+            <div className="card shadow-sm p-4" style={{ maxWidth: '500px', margin: '0 auto' }}>
+                <h2 className="mb-3">👤 User Profile</h2>
+                <p className="mb-2"><strong>Username:</strong> {profile.username}</p>
+                <p className="mb-0"><strong>Email:</strong> {profile.email}</p>
+            </div>
+        </div>
     );
 }
 
