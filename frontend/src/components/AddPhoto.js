@@ -30,15 +30,40 @@ function AddPhoto(props) {
     }
 
     return (
-        <form className="form-group" onSubmit={onSubmit}>
-            {!userContext.user ? <Navigate replace to="/login" /> : ""}
-            {uploaded ? <Navigate replace to="/" /> : ""}
-            <input type="text" className="form-control" name="ime" placeholder="Ime slike" value={name} onChange={(e)=>{setName(e.target.value)}}/>
-            <label>Izberi sliko</label>
-            <input type="file" id="file" onChange={(e)=>{setFile(e.target.files[0])}}/>
-            <input className="btn btn-primary" type="submit" name="submit" value="Naloži" />
+        <form className="p-4 bg-light rounded shadow-sm" onSubmit={onSubmit} style={{ maxWidth: '500px', margin: '0 auto' }}>
+            <h4 className="mb-3">Upload a New Photo</h4>
+            
+            <div className="mb-3">
+                <label htmlFor="photoName" className="form-label">Photo Name</label>
+                <input
+                    type="text"
+                    id="photoName"
+                    className="form-control"
+                    name="ime"
+                    placeholder="Enter photo name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                />
+            </div>
+
+            <div className="mb-3">
+                <label htmlFor="file" className="form-label">Select Image File</label>
+                <input
+                    className="form-control"
+                    type="file"
+                    id="file"
+                    accept="image/*"
+                    onChange={(e) => setFile(e.target.files[0])}
+                    required
+                />
+            </div>
+
+            <button type="submit" className="btn btn-primary w-100">
+                Upload
+            </button>
         </form>
-    )
+    );
 }
 
 export default AddPhoto;
