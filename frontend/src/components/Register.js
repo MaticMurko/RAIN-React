@@ -50,6 +50,7 @@ function Register() {
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                 />
+                
                 <input
                     type="password"
                     className="form-control mb-3"
